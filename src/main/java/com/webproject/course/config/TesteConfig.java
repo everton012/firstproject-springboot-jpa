@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Profile;
 
 import com.webproject.course.entities.Category;
 import com.webproject.course.entities.Order;
+import com.webproject.course.entities.OrderItem;
 import com.webproject.course.entities.Product;
 import com.webproject.course.entities.User;
 import com.webproject.course.entities.enums.OrderStatus;
@@ -68,6 +69,13 @@ public class TesteConfig implements CommandLineRunner {
 		
 		userRepository.saveAll(Arrays.asList(u1, u2));
 		orderRepository.saveAll(Arrays.asList(o1, o2, o3));
+		
+		OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
+		OrderItem oi2 = new OrderItem(o1, p3, 2, p3.getPrice());
+		OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
+		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
+		
+		
 	}
 	
 }
