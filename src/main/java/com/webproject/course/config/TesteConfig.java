@@ -15,6 +15,7 @@ import com.webproject.course.entities.Product;
 import com.webproject.course.entities.User;
 import com.webproject.course.entities.enums.OrderStatus;
 import com.webproject.course.repositories.CategoryRepository;
+import com.webproject.course.repositories.OrderItemRepository;
 import com.webproject.course.repositories.OrderRepository;
 import com.webproject.course.repositories.ProductRepository;
 import com.webproject.course.repositories.UserRepository;
@@ -34,6 +35,9 @@ public class TesteConfig implements CommandLineRunner {
 	
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private OrderItemRepository orderItemRepository;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -75,7 +79,6 @@ public class TesteConfig implements CommandLineRunner {
 		OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
 		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
 		
-		
-	}
-	
+		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+	}	
 }

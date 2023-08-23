@@ -1,4 +1,3 @@
-
 package com.webproject.course.entities;
 
 import java.io.Serializable;
